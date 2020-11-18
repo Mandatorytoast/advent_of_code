@@ -16,6 +16,7 @@ def main():
         copy[2] = y
         if run_code(copy)[0] == 19690720:
             print("Part 2: {}".format(str(100 * x + y)))
+            break
 
 def run_code(intcode):
     for i in range(0, len(intcode), 4):
