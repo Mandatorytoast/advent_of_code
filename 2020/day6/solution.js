@@ -3,6 +3,7 @@ let groupData = []
 try {
     const data = fs.readFileSync('input.txt', 'utf8')
     const groups = data.split('\n\n')
+    groups[groups.length-1] = groups[groups.length-1].replace(/^\s+|\s+$/g, '');
     groups.forEach( x => {
         groupData.push(x.split('\n'))
     })
@@ -34,7 +35,7 @@ function filterDuplicates(groupAnswers) {
 
 function getDuplicates(groupAnswers) {
     let common = groupAnswers[0].split('')
-    for ( let i = 1; i < groupAnswers.length; i++ ) {
+    for ( let i = 0; i < groupAnswers.length; i++ ) {
         common = common.filter(x => groupAnswers[i].split('').includes(x))
     }
     return common
